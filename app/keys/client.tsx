@@ -20,7 +20,7 @@ const UnkeyElements = () => {
     async function onCreate(formData: FormData) {
         const res = await create(formData)
         if(!res) return null;
-        
+        // @ts-ignore: I promise it will never be undefined
         setKey(res?.key?.key);
     }
     const getData = async () => {
