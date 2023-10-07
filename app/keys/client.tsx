@@ -19,7 +19,9 @@ const UnkeyElements = () => {
     const [secret, setSecret] = useState<string>('')
     async function onCreate(formData: FormData) {
         const res = await create(formData)
-        if(res) setKey(res?.key?.key);
+        if(!res) return null;
+        
+        setKey(res?.key?.key);
     }
     const getData = async () => {
         const res = await fetch(`/api/secret`, {
